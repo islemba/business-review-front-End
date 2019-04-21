@@ -2,26 +2,27 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
+import {Business} from '../business.model';
+
 const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      Authorization: 'my-auth-token'
     })
   };
 @Injectable({
   providedIn: 'root'
 })
 export class BusinessService {
-  Url = 'http://127.0.0.1:8000/add-business/';
+  Url = 'http://127.0.0.1:8000/';
   constructor(private http: HttpClient) { }
   addBusiness(business: Business): Observable<Business> {
-    return this.http.post<Business>(this.Url, business, httpOptions)
+    return this.http.post<Business>(this.Url + 'add-business/', JSON.stringify(business), httpOptions)
       .pipe(
         catchError(this.handleError('add-business', business))
       );
   }
-  getBusniss(id: number): Observable<Business> {
-    const url = `${this.Url}/${id}`;
+  getBusiness(id: number): Observable<Business> {
+    const url = `${this.Url}business-details/?business_id=${id}`;
     return this.http.get<Business>(url).pipe(
       tap(_ => console.log(`fetched Business id=${id}`)),
       catchError(this.handleError<Business>(`getHero id=${id}`))
@@ -32,7 +33,7 @@ export class BusinessService {
       // if not search term, return empty business array.
       return of([]);
     }
-    return this.http.get<Business[]>(`${this.Url}/?q=${term}`).pipe(
+    return this.http.get<Business[]>(`${this.Url}search/?q=${term}`).pipe(
       tap(_ => console.log(`found business matching "${term}"`)),
       catchError(this.handleError<Business[]>('searchBusiness', []))
     );

@@ -1,0 +1,55 @@
+
+#green {
+  background-color:rgb(255,255,255,0.8);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 1%;
+}
+#aqua {
+  margin-left: 1%;
+  margin-bottom: 1%;
+
+}
+
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact {
+  display: flex;
+  flex: 1 0 240px;
+}
+
+.contact__info {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 24px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.phone {
+  font-size: 0.875em;
+}
+
+.info{
+  background: #663168;
+  margin-bottom: 5%;
+}
+
+.glyphicon { margin-right:5px;}
+.rating-num { margin-top:0px;font-size: 54px;}
+.progress { margin-bottom: 0px;}
+.progress-bar { text-align: left; }
+.rating-desc .col-md-3 {padding-right: 0px;}
+.sr-only { margin-left: 5px;overflow: visible;clip: auto; }
+
+
+.divider-sample .mt {
+  margin-top: 20px;
+}
+

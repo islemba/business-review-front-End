@@ -1,0 +1,18 @@
+
+<form [formGroup]="form" (submit)="onSubmit()">
+  <star-rating-control
+    [rating]="rating"
+    formControlName="ratingInput"></star-rating-control>
+  <div *ngIf="visible()">
+  <input type="text" formControlName="name" >
+  <input type="text" formControlName="comment" >
+
+    <button
+      type="submit" >
+      Submit
+    </button>
+  </div>
+</form>
+
+
+

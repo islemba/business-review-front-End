@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BusinessService} from '../services/business.service';
+import {BusinessService} from '../shared/services/business.service';
 
 
 @Component({

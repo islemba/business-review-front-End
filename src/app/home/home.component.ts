@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {BusinessService} from '../shared/services/business.service';
+import {Business} from '../shared/business.model';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  name = '';
+  businessList: Business[];
+  constructor(private businessService: BusinessService) { }
 
   ngOnInit() {
+  }
+  onSubmit() {
+    console.log('click' + this.name);
+    this.businessService.searchBusiness(this.name)
+      .subscribe( res => {
+          this.businessList = res;
+        }
+      );
   }
 
 }
