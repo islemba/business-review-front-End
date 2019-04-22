@@ -1,3 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~css-star-rating/scss/star-rating';
+@import '~igniteui-angular/lib/core/styles/themes/index';
+@include igx-core();
+$green-palette: igx-palette($primary: #663168,$secondary: #72da67, $surface: #333);
+
+@include igx-theme($green-palette);
+
+.sample-wrapper {
+  width: inherit;
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.sample-content {
+  display: flex;
+  flex-grow: 1;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding: 0;
+  -webkit-animation: fade-in .3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -moz-animation: fade-in .3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in .3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.sample-column {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 0 25%;
+  align-content: flex-start;
+  margin: 16px;
+  min-width: 280px;
+}

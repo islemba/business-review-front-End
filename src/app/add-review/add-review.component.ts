@@ -14,10 +14,11 @@ export class AddReviewComponent implements OnInit {
   }
 
   @Input() business_id: string;
-  rating ;
+  rating = 0 ;
+  vis = false;
   form = new FormGroup({
-    ratingInput: new FormControl(''),
-    name: new FormControl(''),
+    stars: new FormControl(''),
+    reviewer_name: new FormControl(''),
     comment : new FormControl('')
   });
   ngOnInit() {
@@ -31,10 +32,10 @@ export class AddReviewComponent implements OnInit {
   }
   onSubmit() {
 
-    /*this.addReview(Object.assign(this.form.value, {id: this.business_id}));*/
-    console.log('Submitted value:', Object.assign(this.form.value, {id: this.business_id}));
+    this.addReview(Object.assign(this.form.value, {business_id: this.business_id}));
+    console.log('Submitted value:', Object.assign(this.form.value, {business_id: this.business_id}));
   }
   visible() {
-    return(this.rating !== 0);
+    this.vis = true;
   }
 }

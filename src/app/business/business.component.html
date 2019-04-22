@@ -8,17 +8,13 @@
           <div class="my-auto">
 
 
-        <igx-avatar
-          initials="IB"
-          roundShape="true"
-          size="large"
-        >
-        </igx-avatar>
+        <img [src]="trusted">
+
           </div>
         </div>
       </div>
       <div class="col-md-9 ">
-      <h4 class="">{{business.name}}</h4>
+      <h4 >{{business.name | uppercase}}</h4>
       <h6 class="">{{business.category}}</h6>
         <div class="row ">
           <span class="col-md-12"><fa name="map-marker" size="lg"></fa> {{business.address}} </span>
@@ -31,17 +27,17 @@
       <div class="col-md-4 ">
         <div class="container">
         <div class="col-md-10 ">
-              <div class="row">
+              <div class="row d-flex justify-content-center align-items-center">
 
-                  <h3 class="rating-num">
-                   {{mean}} </h3>
+                  <h3 class="rating-num" >{{mean.toFixed(1)}}
+                   </h3>
 
 
-                <div class="row">
-                <star-rating  [rating]="mean" readOnly></star-rating>
+                <div class="row d-flex justify-content-center align-items-center">
+                <star-rating  [rating]="mean" [readOnly]="true" [showHalfStars]="true" ></star-rating>
                 </div>
-                  <div class="row" >
-                    <fa  name="user">{{business?.reviews?.length}}</fa>
+                  <div class="row d-flex justify-content-center align-items-center" >
+                    <fa  name="user"></fa>{{reviews.length}} total
                   </div>
                 </div>
           </div>
@@ -63,7 +59,7 @@
           </div>
           <div class="col-xs-8 col-md-9">
           <div >
-            <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+            <igx-linear-bar type="warning" value="20"></igx-linear-bar>
           </div>
           </div>
           <!-- end 4 -->
@@ -120,24 +116,25 @@
       <igx-list-item >
         Comments
       </igx-list-item>
-      <igx-list-item #item *ngFor="let contact of contacts;">
+      <igx-list-item #item *ngFor="let review of reviews;">
         <div class="item-container">
           <div class="contact">
-            <igx-avatar initials="JS"
+            <igx-avatar [initials]="review.reviewer.charAt(0)"
                         roundShape="true"
                         size="small"
                         bgColor="silver"
                         color="black">
             </igx-avatar>
             <div class="contact__info">
-              <span class="name">{{ contact.name }}</span>
+              <span class="name">{{ review.reviewer }}</span>
               <span><star-rating
                 labelPosition="right"
                 labelText="good"
-                    [rating]=3>
+                [readOnly]="true"
+                    [rating]=review.stars>
                     </star-rating>
               </span>
-              <span class="phone">comment :amazing place </span>
+              <span class="phone">{{review.comment}}</span>
             </div>
           </div>
         </div>

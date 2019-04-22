@@ -8,13 +8,6 @@ export class Business {
   address: string;
   logo: string;
   reviews: Review[];
-  calculateMean(): number {
-    if (this.reviews.length === 0) {return 0; }
-    let somme;
-    for (const review of this.reviews) {
-      somme += review.stars;
-    }
-    return somme / this.reviews.length;
-  }
+
 }
 
