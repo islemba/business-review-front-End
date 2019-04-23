@@ -27,6 +27,10 @@
     </div>
   </div>
 </form>
+<div *ngIf="success" class="alert alert-success" role="alert">
+  review Added successfully
+  <a class="close" (click)="removeAlert()">&times;</a>
+</div>
 
 
 

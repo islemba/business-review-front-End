@@ -16,6 +16,7 @@ export class AddReviewComponent implements OnInit {
   @Input() business_id: string;
   rating = 0 ;
   vis = false;
+  success: boolean;
   form = new FormGroup({
     stars: new FormControl(''),
     reviewer_name: new FormControl(''),
@@ -27,8 +28,11 @@ export class AddReviewComponent implements OnInit {
     if (!value) { return; }
     this.reviewService.addReview(value)
       .subscribe(res => {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(res));
+        this.success = true ;
       });
+  }
+  removeAlert() {
+    this.success = false;
   }
   onSubmit() {
 

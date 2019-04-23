@@ -13,16 +13,6 @@
 
 
 
-  <div>
-    <ul *ngIf="businessList">
-      <li *ngFor="let business of businessList">
-        {{business.name}}
-        <a [routerLink]="['/business',business.id]">show detail</a>
-      </li>
-
-    </ul>
-  </div>
-
 <section class="sample-content d-flex justify-content-center align-items-center" igxLayoutDir="row">
   <article  class="sample-column card-wrapper" *ngFor="let business of businessList">
 
