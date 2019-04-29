@@ -25,7 +25,14 @@ export class BusinessService {
     const url = `${this.Url}business-details/?business_id=${id}`;
     return this.http.get<Business>(url).pipe(
       tap(_ => console.log(`fetched Business id=${id}`)),
-      catchError(this.handleError<Business>(`getHero id=${id}`))
+      catchError(this.handleError<Business>(`getbusiness id=${id}`))
+    );
+  }
+  getBusinessList(): Observable<Business[]> {
+    const url = `${this.Url}/business`;
+    return this.http.get<Business[]>(url).pipe(
+      tap(_ => console.log(`fetched Business `)),
+      catchError(this.handleError<Business[]>(`getbusiness`))
     );
   }
   searchBusiness(term: string): Observable<Business[]> {

@@ -1,0 +1,67 @@
+<section class="breadcrumbs white-block">
+  <div class="container">
+    <div class="clearfix">
+      <div class="pull-left">
+        <ul class="list-unstyled list-inline breadcrumbs-list"><li>Home</li><li>Reviews search results</li></ul>			</div>
+      <div class="pull-right">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="search-filter">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="widget white-block clearfix">
+
+          <div class="widget-title-wrap">
+            <h5 class="widget-title">
+              <i class="fa fa-angle-double-right"></i>Filter By Keyword </h5>
+          </div>
+            <input type="text" class="form-control" name="keyword" [(ngModel)]="name" (change)="filter()" placeholder="Type term and hit enter...">
+        </div>
+      </div>
+      <div class="col-sm-4">
+
+        <div class="widget white-block clearfix">
+
+          <div class="widget-title-wrap">
+            <h5 class="widget-title">
+              <i class="fa fa-angle-double-right"></i>Filter By Category </h5>
+          </div>
+            <select name="review-category" id="review-category" class="form-control" [(ngModel)]="category" (change)="filter()">
+              <option value="">All Categories</option>
+              <option *ngFor="let el of categories" [value]="el.value" >{{el.name}}</option>
+            </select>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+
+        <div class="row masonry">
+          <div class="col-sm-4 masonry-item" *ngFor="let el of categories">
+            <div class="reviews-box white-block">
+              <div class="blog-media">
+                <a href="">
+                  <img width="360" height="203"
+                       src="http://demo.djmimi.net/themes/reviews/wp-content/themes/reviews/images/holder.jpg"
+                       class="embed-responsive-item reviews-lazy-load wp-post-image" alt=""
+                       sizes="(min-width: 414px) and (max-width: 768px) 768px, 360px"
+                       srcset="http://demo.djmimi.net/themes/reviews/wp-content/uploads/2015/07/toothpaste-360x203.jpg 360w, http://demo.djmimi.net/themes/reviews/wp-content/uploads/2015/07/toothpaste-848x477.jpg 848w"
+                       data-src="http://demo.djmimi.net/themes/reviews/wp-content/uploads/2015/07/toothpaste-360x203.jpg"/>
+                </a>
+              </div>
+              <div class="content-inner">
+                <a href="" class="blog-title">
+                  <h5>Colgate Total</h5>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

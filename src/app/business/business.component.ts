@@ -13,10 +13,10 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 })
 export class BusinessComponent implements OnInit {
 
+  similar = [];
   mean = 0;
   business = new Business();
   reviews = [] as Review[];
-  trusted: SafeResourceUrl ;
   constructor(private businessService: BusinessService,
               private route: ActivatedRoute,
               private sanitizer: DomSanitizer) { }
@@ -27,8 +27,6 @@ export class BusinessComponent implements OnInit {
          .subscribe(business => {this.business = business;
                                  this.reviews = business.reviews;
                                  this.mean = this.calculateMean();
-                                 this.trusted = this.sanitizer.bypassSecurityTrustResourceUrl(`url(${this.business.logo})`) ;
-                                 console.log(this.trusted);
          });
     });
   }

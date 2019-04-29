@@ -29,6 +29,7 @@ import { FormsModule } from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {StarRatingModule} from 'angular-star-rating';
 import {AddReviewComponent} from './add-review/add-review.component';
+import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import {AddReviewComponent} from './add-review/add-review.component';
     BusinessComponent,
     NavbarComponent,
     FooterComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    SearchComponent
   ],
   imports: [
     AlertModule.forRoot(),

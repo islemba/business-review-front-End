@@ -1,36 +1,47 @@
 
-<form [formGroup]="form" (submit)="onSubmit()">
-  <star-rating-control
-    [rating]="rating"
-    (starClickChange)="visible()"
-    formControlName="stars"></star-rating-control>
-  <div *ngIf="vis">
-    <div class="form-group ">
-      <label for="uploadMedia" class="col-md-2 control-label">Name</label>
-      <div class="col-md-10">
-        <div class="input-group ">
-          <input type="text" class="form-control" name="uploadMedia" id="uploadMedia" placeholder="facultatif" formControlName="reviewer_name" >
+<div class="white-block">
+  <div class="content-inner">
+    <!-- leave comment form -->
+    <!-- title -->
+    <div class="widget-title-wrap">
+      <h5 class="widget-title">
+        Leave Review </h5>
+    </div>
+    <!--.title -->
+    <div id="contact_form">
+      <div id="respond" class="comment-respond">
+        <h3 id="reply-title" class="comment-reply-title">
+          <small><a rel="nofollow" id="cancel-comment-reply-link"
+                    href="/themes/reviews/review/weber-genesis-e-330/#respond" style="display:none;">or cancel
+            reply</a></small>
+        </h3>
+        <form class="comment-form" novalidate [formGroup]="form" (submit)="onSubmit()">
+          <div class="form-group has-feedback">
+            <p class="comment-review">
+              <label>Add Review</label>
+              <div class="col-2">
+              <star-rating-control
+                [rating]="rating"
+                formControlName="stars"></star-rating-control></div>
+
+            <label for="message">Your Comment</label>
+            <textarea rows="10" cols="100" class="form-control" placeholder="facultatif"  formControlName="comment" id="message" name="comment"></textarea>
+          </div>
+          <div class="form-group has-feedback">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" name="author" placeholder="facultatif" formControlName="reviewer_name" >
+          </div>
+
+          <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit"
+                                        value="Send Review"/>
+          </p></form>
+        <div *ngIf="success" class="alert alert-success" role="alert">
+          review Added successfully
+          <a class="close" (click)="removeAlert()">&times;</a>
         </div>
-      </div>
+      </div><!-- #respond -->
     </div>
-    <div class="form-group ">
-      <label  class="col-sm-2 control-label">Comment</label>
-      <div class="col-sm-10">
-        <textarea class="form-control" name="addComment" id="addComment" placeholder="facultatif" rows="5" formControlName="comment"></textarea>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button class="btn  btn-circle text-uppercase" type="submit" id="submitComment"><fa name="paper-plane"></fa> Summit </button>
-      </div>
-    </div>
+    <!-- content -->
+    <!-- .leave comment form -->
   </div>
-</form>
-<div *ngIf="success" class="alert alert-success" role="alert">
-  review Added successfully
-  <a class="close" (click)="removeAlert()">&times;</a>
 </div>
-
-
-

@@ -20,8 +20,8 @@ export class AddBusinessComponent implements OnInit {
   addBusinessForm: FormGroup;
   selectedFile: File;
   submitted = false;
-  fileData: File;
   success: boolean;
+  image;
   constructor(private fb: FormBuilder,
               private businessService: BusinessService) { }
   ngOnInit() {
@@ -35,9 +35,19 @@ export class AddBusinessComponent implements OnInit {
   removeAlert() {
     this.success = false;
   }
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
+  changeListener($event): void {
+    this.readThis($event.target);
+  }
+
+  readThis(inputValue: any): void {
+    const file: File = inputValue.files[0];
+    const myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      this.image = myReader.result.toString().split(',')[1];
+      console.log(this.image);
+    };
+    myReader.readAsDataURL(file);
   }
   addBusiness(value) {
     if (!value) { return; }
@@ -57,7 +67,7 @@ export class AddBusinessComponent implements OnInit {
       return;
     }
     this.submitted = false;
-    this.addBusiness(Object.assign(this.addBusinessForm.value, {logo: this.selectedFile}));
+    this.addBusiness(Object.assign(this.addBusinessForm.value, {logo: this.image}));
 
   }
 

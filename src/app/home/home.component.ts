@@ -10,19 +10,16 @@ import {Business} from '../shared/business.model';
 })
 export class HomeComponent implements OnInit {
 
+  categories = [{value: 'IT' , name: 'Information and Technology', icon: 'fa fa-desktop'},
+    {value: 'Food', name: 'Restaurants, coffees and bars', icon: 'fa fa-coffee'},
+    {value: 'Bank', name: 'Banks and financial institutions', icon: 'fa fa-university'},
+    {value: 'Service', name: 'Services', icon: 'fa fa-university'},
+    {value: 'Auto', name: 'Cars and accessories', icon: 'fa fa-car'},
+    {value: 'Other', name: 'Other', icon : 'fa fa-university'}];
   name = '';
   businessList: Business[];
   constructor(private businessService: BusinessService) { }
 
   ngOnInit() {
   }
-  onSubmit() {
-    console.log('click' + this.name);
-    this.businessService.searchBusiness(this.name)
-      .subscribe( res => {
-          this.businessList = res;
-        }
-      );
-  }
-
 }

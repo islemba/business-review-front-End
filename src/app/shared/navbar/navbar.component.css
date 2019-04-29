@@ -1,5 +1,5 @@
 .navbar {
-  background-color: transparent;
+  background: #2980B9;
 }
 
 .top-nav-collapse {
@@ -11,3 +11,4 @@
     background-color: silver;
   }
 }
+

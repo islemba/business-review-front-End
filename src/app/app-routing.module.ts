@@ -3,10 +3,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {BusinessComponent} from './business/business.component';
 import {HomeComponent} from './home/home.component';
 import {AddBusinessComponent} from './add-business/add-business.component';
+import {SearchComponent} from './search/search.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'add-business', component: AddBusinessComponent },
+  { path: 'search', component: SearchComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'business/:id', component: BusinessComponent }
 ];

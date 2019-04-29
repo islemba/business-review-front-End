@@ -1,144 +1,190 @@
-<div class="row">
-  <div class="col-md-2">
-  </div>
-  <div id="green" class="col-md-5 divider-sample">
-    <div class="row  ">
-      <div class="col-md-3 ">
-        <div class="row h-100 d-flex justify-content-center align-items-center">
-          <div class="my-auto">
 
 
-        <img [src]="trusted">
+<section class="single-blog">
+  <input type="hidden" name="post-id" value="66">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
 
-          </div>
-        </div>
-      </div>
-      <div class="col-md-9 ">
-      <h4 >{{business.name | uppercase}}</h4>
-      <h6 class="">{{business.category}}</h6>
-        <div class="row ">
-          <span class="col-md-12"><fa name="map-marker" size="lg"></fa> {{business.address}} </span>
-          <span class="col-md-12"><fa name="phone" size="lg"></fa>{{business.phone_number}} </span>
-        </div>
-      </div>
-    </div>
-    <igx-divider></igx-divider>
-    <div class="row mt">
-      <div class="col-md-4 ">
-        <div class="container">
-        <div class="col-md-10 ">
-              <div class="row d-flex justify-content-center align-items-center">
+        <div class="tab-content review-tabs">
+          <div role="tabpanel" class="tab-pane in active" id="tab_0">
+            <div class="white-block single-item">
+              <div class="content-inner">
+                <div class="row">
+                  <div class="col-md-4"><img [src]="business.logo" alt="this is image" width="200" height="200"></div>
+                  <div class="col-md-8"><h1 class="post-title size-h3">{{business.name}}</h1>
+                    <h5><strong>{{business.category}}</strong></h5>
+                    <div class="post-content clearfix">
 
-                  <h3 class="rating-num" >{{mean.toFixed(1)}}
-                   </h3>
+                        <span class="col-md-12"><fa name="map-marker" size="lg"></fa> {{business.address}} </span>
+                        <span style="height: 30px; display: block;"></span>
+                        <span class="col-md-12"><fa name="phone" size="lg"></fa>{{business.phone_number}} </span>
 
-
-                <div class="row d-flex justify-content-center align-items-center">
-                <star-rating  [rating]="mean" [readOnly]="true" [showHalfStars]="true" ></star-rating>
-                </div>
-                  <div class="row d-flex justify-content-center align-items-center" >
-                    <fa  name="user"></fa>{{reviews.length}} total
+                    </div>
                   </div>
                 </div>
-          </div>
-        </div>
-          </div>
-      <div class="col-xs-12 col-md-6">
-        <div class="row rating-desc">
-          <div class="col-xs-3 col-md-3 text-right">
-            <fa name="star"></fa>5
-          </div>
-          <div class="col-xs-8 col-md-9">
-            <div >
-              <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+                <span style="height: 60px; display: block;"></span>
+
+                <div class="row">
+                  <div class="col-md-6">
+
+
+                    <h3 class="row d-flex justify-content-center align-items-center rating-num" >{{mean.toFixed(1)}}
+                    </h3>
+
+
+                    <div class="row d-flex justify-content-center align-items-center">
+                      <star-rating  [rating]="mean" [readOnly]="true" [showHalfStars]="true" ></star-rating>
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center" >
+                      <fa  name="user"></fa>{{reviews.length}} total
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row rating-desc">
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <fa name="star"></fa>5
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div >
+                          <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+                        </div>
+                      </div>
+                      <!-- end 5 -->
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <fa name="star"></fa>4
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div >
+                          <igx-linear-bar type="warning" value="20"></igx-linear-bar>
+                        </div>
+                      </div>
+                      <!-- end 4 -->
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <fa name="star"></fa>3
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div >
+                          <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+                        </div>
+                      </div>
+                      <!-- end 3 -->
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <fa name="star"></fa>2
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div >
+                          <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+                        </div>
+                      </div>
+                      <!-- end 2 -->
+                      <div class="col-xs-3 col-md-3 text-right">
+                        <fa name="star"></fa>1
+                      </div>
+                      <div class="col-xs-8 col-md-9">
+                        <div >
+                          <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+                        </div>
+                      </div>
+                      <!-- end 1 -->
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <!-- end 5 -->
-          <div class="col-xs-3 col-md-3 text-right">
-            <fa name="star"></fa>4
-          </div>
-          <div class="col-xs-8 col-md-9">
-          <div >
-            <igx-linear-bar type="warning" value="20"></igx-linear-bar>
-          </div>
-          </div>
-          <!-- end 4 -->
-          <div class="col-xs-3 col-md-3 text-right">
-            <fa name="star"></fa>3
-          </div>
-          <div class="col-xs-8 col-md-9">
-            <div >
-              <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
-            </div>
-          </div>
-          <!-- end 3 -->
-          <div class="col-xs-3 col-md-3 text-right">
-            <fa name="star"></fa>2
-          </div>
-          <div class="col-xs-8 col-md-9">
-            <div >
-              <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
-            </div>
-          </div>
-          <!-- end 2 -->
-          <div class="col-xs-3 col-md-3 text-right">
-            <fa name="star"></fa>1
-          </div>
-          <div class="col-xs-8 col-md-9">
-            <div >
-              <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
-            </div>
-          </div>
-          <!-- end 1 -->
-        </div>
-        <!-- end row -->
-      </div>
         </div>
 
-    <igx-divider></igx-divider>
-    <div class="row mt ">
-      <div   class=" col-md-12  d-flex justify-content-center ">
-        <h6>Noter</h6></div>
-      <div   class=" col-md-12  d-flex justify-content-center ">
-          <div *ngIf="business">
+        <div class="white-block">
+          <div class="content-inner">
+            <!-- title -->
+            <div class="widget-title-wrap">
+              <h5 class="widget-title">
+                {{reviews.length}} User Reviews </h5>
+            </div>
+            <!--.title -->
+
+            <!-- comments -->
+            <div class="comment-content comments">
+              <!-- comment -->
+              <div class="row comment-row  " id="comment-9" *ngFor="let review of reviews">
+                <!-- comment media -->
+                <div class="col-sm-12">
+                  <div class="comment-avatar">
+                    <igx-avatar [initials]="review.reviewer.charAt(0)"
+                                roundShape="true"
+                                size="large"
+                                bgColor="silver"
+                                color="black">
+                    </igx-avatar>
+                    </div>
+                  <div class="comment-content-wrap">
+                    <div class="comment-name">
+                      <div class="pull-left">
+                        <p>
+                          <strong>{{review.reviewer}}</strong> - <span>{{review.date}}</span>
+                        </p>
+                      </div>
+                      <span class="pull-right">
+
+					</span>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div >
+                      <div class="row">
+                        <star-rating class="col-2"
+                          [readOnly]="true"
+                          [rating]=review.stars>
+                        </star-rating>
+
+                      </div>
+                      <span style="height: 15px; display: block;"></span>
+                      <div ><p>{{review.comment}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- .comment media -->
+              </div><!-- .comment -->
+              <!-- comment -->
+
+            </div>
+            <!-- .comments -->
+
+          </div>
+        </div>
+
+        <div *ngIf="business">
           <app-add-review [business_id]=business.id></app-add-review>
-          </div>
+        </div>
+
 
       </div>
+      <div class="col-md-3">
 
 
-    </div>
-
-  </div>
-
-  <div id="aqua" class="col-md-4">
-    <igx-list >
-      <igx-list-item >
-        Comments
-      </igx-list-item>
-      <igx-list-item #item *ngFor="let review of reviews;">
-        <div class="item-container">
-          <div class="contact">
-            <igx-avatar [initials]="review.reviewer.charAt(0)"
-                        roundShape="true"
-                        size="small"
-                        bgColor="silver"
-                        color="black">
-            </igx-avatar>
-            <div class="contact__info">
-              <span class="name">{{ review.reviewer }}</span>
-              <span><star-rating
-                labelPosition="right"
-                labelText="good"
-                [readOnly]="true"
-                    [rating]=review.stars>
-                    </star-rating>
-              </span>
-              <span class="phone">{{review.comment}}</span>
-            </div>
+        <div class="widget white-block clearfix">
+          <div class="widget-title-wrap">
+            <h5 class="widget-title">
+              <i class="fa fa-angle-double-right"></i>Similar  </h5>
           </div>
+          <ul class="list-unstyled similar-reviews">
+            <li *ngFor="let el of similar">
+              <a href="" class="no-margin">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <img width="360" height="203"
+                     [src]="el.logo"  />
+                </div>
+
+              </a>
+              <a href="http://demo.djmimi.net/themes/reviews/review/samsung-dv56h9100eg/" class="text-center">
+                <h6>{{el.name}}</h6>
+              </a>
+            </li>
+
+          </ul>
         </div>
-      </igx-list-item>
-    </igx-list>
+
+      </div>
+    </div>
   </div>
-</div>
+</section>
