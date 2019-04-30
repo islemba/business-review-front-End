@@ -30,6 +30,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {StarRatingModule} from 'angular-star-rating';
 import {AddReviewComponent} from './add-review/add-review.component';
 import { SearchComponent } from './search/search.component';
+import { FilterNamePipe } from './filter-name.pipe';
+import { FilterCatPipe } from './filter-cat.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import { SearchComponent } from './search/search.component';
     NavbarComponent,
     FooterComponent,
     AddReviewComponent,
-    SearchComponent
+    SearchComponent,
+    FilterNamePipe,
+    FilterCatPipe
   ],
   imports: [
     AlertModule.forRoot(),

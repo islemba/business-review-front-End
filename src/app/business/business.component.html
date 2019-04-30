@@ -11,7 +11,7 @@
             <div class="white-block single-item">
               <div class="content-inner">
                 <div class="row">
-                  <div class="col-md-4"><img [src]="business.logo" alt="this is image" width="200" height="200"></div>
+                  <div class="col-md-4"><img src="http://127.0.0.1:8000/media/{{business.logo}}" alt="this is image" width="200" height="200"></div>
                   <div class="col-md-8"><h1 class="post-title size-h3">{{business.name}}</h1>
                     <h5><strong>{{business.category}}</strong></h5>
                     <div class="post-content clearfix">
@@ -47,7 +47,7 @@
                       </div>
                       <div class="col-xs-8 col-md-9">
                         <div >
-                          <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+                          <igx-linear-bar type="warning" [value]="star[4]" ></igx-linear-bar>
                         </div>
                       </div>
                       <!-- end 5 -->
@@ -56,7 +56,7 @@
                       </div>
                       <div class="col-xs-8 col-md-9">
                         <div >
-                          <igx-linear-bar type="warning" value="20"></igx-linear-bar>
+                          <igx-linear-bar type="warning" [value]="star[3]"></igx-linear-bar>
                         </div>
                       </div>
                       <!-- end 4 -->
@@ -65,7 +65,7 @@
                       </div>
                       <div class="col-xs-8 col-md-9">
                         <div >
-                          <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+                          <igx-linear-bar type="warning" [value]="star[2]"></igx-linear-bar>
                         </div>
                       </div>
                       <!-- end 3 -->
@@ -74,7 +74,7 @@
                       </div>
                       <div class="col-xs-8 col-md-9">
                         <div >
-                          <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+                          <igx-linear-bar type="warning" [value]="star[1]" ></igx-linear-bar>
                         </div>
                       </div>
                       <!-- end 2 -->
@@ -83,7 +83,7 @@
                       </div>
                       <div class="col-xs-8 col-md-9">
                         <div >
-                          <igx-linear-bar type="warning" value="20" ></igx-linear-bar>
+                          <igx-linear-bar type="warning" [value]="star[0]"></igx-linear-bar>
                         </div>
                       </div>
                       <!-- end 1 -->
@@ -122,7 +122,7 @@
                     <div class="comment-name">
                       <div class="pull-left">
                         <p>
-                          <strong>{{review.reviewer}}</strong> - <span>{{review.date}}</span>
+                          <strong>{{review.reviewer}}</strong> - <span>{{review.date | date : short }}</span>
                         </p>
                       </div>
                       <span class="pull-right">
@@ -165,18 +165,19 @@
         <div class="widget white-block clearfix">
           <div class="widget-title-wrap">
             <h5 class="widget-title">
-              <i class="fa fa-angle-double-right"></i>Similar  </h5>
+              <i class="fa fa-angle-double-right"></i>Similar</h5>
           </div>
-          <ul class="list-unstyled similar-reviews">
+          <ul class="list-unstyled similar-reviews" *ngIf="similar">
             <li *ngFor="let el of similar">
-              <a href="" class="no-margin">
+              <a routerLink="/business/{{el.id}}" class="no-margin">
                 <div class="embed-responsive embed-responsive-16by9">
                   <img width="360" height="203"
-                     [src]="el.logo"  />
+                     src="http://127.0.0.1:8000/media/{{el.logo}}" alt="this is image"
+                       class="embed-responsive-item reviews-lazy-load "/>
                 </div>
 
               </a>
-              <a href="http://demo.djmimi.net/themes/reviews/review/samsung-dv56h9100eg/" class="text-center">
+              <a routerLink="/business/{{el.id}}" class="text-center">
                 <h6>{{el.name}}</h6>
               </a>
             </li>

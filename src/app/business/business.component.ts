@@ -17,6 +17,7 @@ export class BusinessComponent implements OnInit {
   mean = 0;
   business = new Business();
   reviews = [] as Review[];
+  star = [];
   constructor(private businessService: BusinessService,
               private route: ActivatedRoute,
               private sanitizer: DomSanitizer) { }
@@ -27,20 +28,37 @@ export class BusinessComponent implements OnInit {
          .subscribe(business => {this.business = business;
                                  this.reviews = business.reviews;
                                  this.mean = this.calculateMean();
+                                 this.getsimilar(business.category);
+                                 for (let i = 0; i < 5 ; i++) {
+                                   this.star[i] = this.filter(i + 1).toFixed(2);
+                                 }
          });
     });
   }
-calculateMean() {
+  filter(num) {
     if (this.reviews.length === 0) { return 0; }
-    let somme = 0;
-    for (const review of this.reviews) {
-    somme += Number(review.stars);
+    let filtered = [];
+    filtered = this.reviews.filter(value => value.stars === num.toString());
+    return (filtered.length / this.reviews.length) * 100;
   }
+  calculateMean() {
+      if (this.reviews.length === 0) { return 0; }
+      let somme = 0;
+      for (const review of this.reviews) {
+      somme += Number(review.stars);
+    }
 
-    console.log(somme);
-    return (somme / this.reviews.length);
+      console.log(somme);
+      return (somme / this.reviews.length);
 
-}
+  }
+  getsimilar(category) {
+  this.businessService.searchBusinessbyCategory(category)
+    .subscribe(bus => {this.similar = bus;
+                       this.similar = this.similar.filter(value => {
+      return !(value.id === this.business.id);
+    }); });
+  }
    ngOnInit() {
     this.getBusiness();
     console.log(this.business);

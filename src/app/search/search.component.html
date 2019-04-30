@@ -18,7 +18,7 @@
             <h5 class="widget-title">
               <i class="fa fa-angle-double-right"></i>Filter By Keyword </h5>
           </div>
-            <input type="text" class="form-control" name="keyword" [(ngModel)]="name" (change)="filter()" placeholder="Type term and hit enter...">
+            <input type="text" class="form-control" name="keyword" [(ngModel)]="name"  placeholder="Type term and hit enter...">
         </div>
       </div>
       <div class="col-sm-4">
@@ -29,7 +29,7 @@
             <h5 class="widget-title">
               <i class="fa fa-angle-double-right"></i>Filter By Category </h5>
           </div>
-            <select name="review-category" id="review-category" class="form-control" [(ngModel)]="category" (change)="filter()">
+            <select name="review-category" id="review-category" class="form-control" [(ngModel)]="category" >
               <option value="">All Categories</option>
               <option *ngFor="let el of categories" [value]="el.value" >{{el.name}}</option>
             </select>
@@ -41,21 +41,20 @@
       <div class="col-sm-12">
 
         <div class="row masonry">
-          <div class="col-sm-4 masonry-item" *ngFor="let el of categories">
+          <div class="col-sm-4 masonry-item" *ngFor="let el of businessesList | filterCat : category | filterName : name">
             <div class="reviews-box white-block">
               <div class="blog-media">
-                <a href="">
+                <a routerLink="/business/{{el.id}}">
                   <img width="360" height="203"
-                       src="http://demo.djmimi.net/themes/reviews/wp-content/themes/reviews/images/holder.jpg"
-                       class="embed-responsive-item reviews-lazy-load wp-post-image" alt=""
+                       src="http://127.0.0.1:8000/media/{{el.logo}}"
+                       class="embed-responsive-item reviews-lazy-load "
                        sizes="(min-width: 414px) and (max-width: 768px) 768px, 360px"
-                       srcset="http://demo.djmimi.net/themes/reviews/wp-content/uploads/2015/07/toothpaste-360x203.jpg 360w, http://demo.djmimi.net/themes/reviews/wp-content/uploads/2015/07/toothpaste-848x477.jpg 848w"
-                       data-src="http://demo.djmimi.net/themes/reviews/wp-content/uploads/2015/07/toothpaste-360x203.jpg"/>
+                       />
                 </a>
               </div>
               <div class="content-inner">
-                <a href="" class="blog-title">
-                  <h5>Colgate Total</h5>
+                <a routerLink="/business/{{el.id}}" class="blog-title">
+                  <h5>{{el.name}}</h5>
                 </a>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {ReviewService} from '../shared/services/review.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-review',
@@ -10,7 +11,9 @@ import {ReviewService} from '../shared/services/review.service';
 export class AddReviewComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
-              private reviewService: ReviewService) {
+              private reviewService: ReviewService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   @Input() business_id: string;
@@ -29,6 +32,7 @@ export class AddReviewComponent implements OnInit {
     this.reviewService.addReview(value)
       .subscribe(res => {
         this.success = true ;
+        this.form.reset();
       });
   }
   removeAlert() {
@@ -39,7 +43,5 @@ export class AddReviewComponent implements OnInit {
     this.addReview(Object.assign(this.form.value, {business_id: this.business_id}));
     console.log('Submitted value:', Object.assign(this.form.value, {business_id: this.business_id}));
   }
-  visible() {
-    this.vis = true;
-  }
+
 }

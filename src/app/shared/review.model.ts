@@ -5,4 +5,5 @@ export class Review {
   stars: number;
   comment: string;
   reviewer: string ;
+  date: string;
 }

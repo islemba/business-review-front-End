@@ -18,7 +18,6 @@ export class AddBusinessComponent implements OnInit {
     {value: 'Auto', name: 'Cars and accessories'},
     {value: 'Other', name: 'Other'}];
   addBusinessForm: FormGroup;
-  selectedFile: File;
   submitted = false;
   success: boolean;
   image;
@@ -28,7 +27,7 @@ export class AddBusinessComponent implements OnInit {
       this.addBusinessForm = this.fb.group({
       name: ['', Validators.required],
       address: ['', Validators.required],
-        phone_number: ['', Validators.required],
+      phone_number: ['', Validators.required],
       category: ['', Validators.required]
     });
   }

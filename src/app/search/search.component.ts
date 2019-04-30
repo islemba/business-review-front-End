@@ -18,8 +18,7 @@ export class SearchComponent implements OnInit {
     {value: 'Other', name: 'Other', icon : 'fa fa-university'}];
   name = '';
   category = '';
-  businessList: Business[] ;
-  filteredList = [];
+  businessesList: Business[] ;
   constructor(private route: ActivatedRoute,
               private businessService: BusinessService) {
     route.queryParams.subscribe((params) => {
@@ -33,11 +32,9 @@ export class SearchComponent implements OnInit {
     });
   }
   getBusiness() {
-  }
-  filter() {
-    this.filteredList = this.businessList.filter((value) => {
-      return (value.name.includes(this.name) && value.category.localeCompare(this.category));
-    });
+    this.businessService.getAll()
+      .subscribe(bus => {this.businessesList = bus;
+      });
   }
   ngOnInit() {
     this.getBusiness();

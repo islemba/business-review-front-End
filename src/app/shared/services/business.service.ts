@@ -35,6 +35,12 @@ export class BusinessService {
       catchError(this.handleError<Business[]>(`getbusiness`))
     );
   }
+  searchBusinessbyCategory(term: string): Observable<Business[]> {
+    return this.http.get<Business[]>(`${this.Url}businesses-list/?category=${term}`).pipe(
+      tap(_ => console.log(`found business matching "${term}"`)),
+      catchError(this.handleError<Business[]>('searchBusiness', []))
+    );
+  }
   searchBusiness(term: string): Observable<Business[]> {
     if (!term.trim()) {
       // if not search term, return empty business array.
@@ -44,6 +50,12 @@ export class BusinessService {
       tap(_ => console.log(`found business matching "${term}"`)),
       catchError(this.handleError<Business[]>('searchBusiness', []))
     );
+  }
+  getAll(): Observable<Business[]> {
+    return this.http.get<Business[]>(`${this.Url}businesses-list`)
+      .pipe(
+        catchError(this.handleError('getAll', []))
+      );
   }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
